@@ -16,3 +16,4 @@ rootProject.name = "K230509Samkim"
 include ':app'
 include ':testsample'
 include ':test6'
+include ':test7'
