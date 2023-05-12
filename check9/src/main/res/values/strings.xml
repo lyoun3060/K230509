@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">check9</string>
+    <string name="introTitle">Find your phone contacts on Messenger</string>
+    <string name="introBody">Continuously uploading your contacts helps Facebook and Messenger suggest connections and provide and improve ads for you and others, and offer a better service</string>
+    <string name="setting">TRUN ON</string>
+    <string name="cancle">NOT NOW</string>
+</resources>

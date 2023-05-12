@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.K230509Samkim">
         <activity
+            android:name=".check9"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

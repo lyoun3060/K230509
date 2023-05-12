@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">테스트 9</string>
+    <string name="my_name">김 수 장</string>
+    <string name="appDesc">설명</string>
+
+</resources>
