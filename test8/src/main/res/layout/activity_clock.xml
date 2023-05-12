@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".clock">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CH08_Event"
+        android:textSize="30sp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:backgroundTint="#9C27B0"
+        android:padding="10dp"
+        />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:textSize="60dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="300dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="START"
+            android:textSize="15sp"
+            android:background="@drawable/round_button"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+
+            />
+        <Button
+            android:id="@+id/btn_stop"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="STOP"
+            android:textSize="15sp"
+            android:layout_margin="15dp"
+            />
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="RESET"
+            android:textSize="15sp"
+            android:layout_margin="15dp"
+            />
+
+    </LinearLayout>
+</LinearLayout>
