@@ -3,6 +3,7 @@ package com.example.test10
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+
 import android.content.Intent
 import android.graphics.Color
 import android.media.AudioAttributes
@@ -12,6 +13,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.app.NotificationCompat
+import androidx.core.app.RemoteInput
 import com.example.test10.databinding.ActivityMain2Binding
 
 
@@ -92,15 +94,44 @@ class MainActivity2 : AppCompatActivity() {
                 PendingIntent.getActivity(this@MainActivity2,10,intent,
                     PendingIntent.FLAG_IMMUTABLE)
 
-            //2번째 액션 관련 부분, 액션 인텐트 확인.
+            //(2번째) 액션 관련 부분, 액션 인텐트 확인.
+            val actionIntent = Intent(this@MainActivity2, OneReceiver::class.java)
+            val actionPendingIntent = PendingIntent.getBroadcast(this@MainActivity2, 20, actionIntent, PendingIntent.FLAG_IMMUTABLE) //Broadcast는 저
+            builder.addAction(
+                    NotificationCompat.Action.Builder(
+                        android.R.drawable.stat_notify_more,
+                        "Action제목입니다.",
+                        actionPendingIntent
+                    ).build()
+                    )
 
+            //(3번째) 액션 부분에 답글을 다는 액션
+            var KEY_TEXT_REPLY = "key_text_reply"
+            var replyLabel:String = "답장 테스트"
+            var remoteInput:RemoteInput = RemoteInput.Builder(KEY_TEXT_REPLY).run {
+                setLabel(replyLabel)
+                build()
+            }
 
-            builder.setContentIntent(pendingIntent)
+            //답장화면 으로 전환하는 인텐트 설정
+            val replyIntent = Intent(this@MainActivity2, ReplyReceiver::class.java)
+            val replyPendingIntent = PendingIntent.getBroadcast(this@MainActivity2, 30, replyIntent, PendingIntent.FLAG_MUTABLE)
+            builder.addAction(
+                NotificationCompat.Action.Builder(
+                    android.R.drawable.arrow_down_float,
+                    "답장 테스트",
+                    replyPendingIntent
+                ).addRemoteInput(remoteInput).build()
+            )
+
+//            builder.setContentIntent(pendingIntent)
             builder.setAutoCancel(true)
 
             // notify 메서드에 인자 값으로 Notification  타입 객체 할당.
+//            manager.notify(11,builder.build())
             manager.notify(11,builder.build())
         }
+
 
 
     }
