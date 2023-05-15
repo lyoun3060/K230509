@@ -92,6 +92,9 @@ class MainActivity2 : AppCompatActivity() {
                 PendingIntent.getActivity(this@MainActivity2,10,intent,
                     PendingIntent.FLAG_IMMUTABLE)
 
+            //2번째 액션 관련 부분, 액션 인텐트 확인.
+
+
             builder.setContentIntent(pendingIntent)
             builder.setAutoCancel(true)
 
