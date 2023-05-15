@@ -58,6 +58,74 @@ class MainActivity : AppCompatActivity() {
 
 //        val toast = Toast.makeText(this, "메세지내용", Toast.LENGTH_SHORT) //context에 지정하고 싶은게 있으면 @지정할이름 으로 쓰면됨
 
+        //라디오 버튼 포함하는 부분
+        binding.btnRadio.setOnClickListener {
+            var items = arrayOf<String>("1", "2", "3")
+            AlertDialog.Builder(this@MainActivity).run{
+                setTitle("라디오 alert 다이얼로그")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setSingleChoiceItems(items, 1, object : DialogInterface.OnClickListener{
+                    override fun onClick(dialog: DialogInterface?, which: Int) {
+                        Log.d("KSJ", "${items[which]}이 선택되었습니다.")
+                    }
+                })
+                setPositiveButton("확인",null)
+                show()
+            }
+        }
+
+
+
+        // 다이얼로그에 체크박스 선택 부분 해보기.
+        binding.btnCheck.setOnClickListener {
+            val items = arrayOf<String>("두루치기","된장찌개","밀면","칼국수")
+            AlertDialog.Builder(this@MainActivity).run {
+                setTitle("checkbox alert 다이얼로그")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setMultiChoiceItems(
+                    items,
+                    booleanArrayOf(true,false,false,false),
+                    object : DialogInterface.OnMultiChoiceClickListener{
+                        override fun onClick(
+                            dialog: DialogInterface?,
+                            which: Int,
+                            isChecked: Boolean
+                        ) {
+                            Log.d("KSJ",
+                                "선택한 점심 메뉴 : ${items[which]} 이 ${if(isChecked)"선택됨." else "선택 해제됨."}"
+                            )
+                        }
+                    }
+                )
+                setPositiveButton("확인",null)
+                show()
+            }
+        }
+
+
+
+        //다이얼로그에 메뉴 선택부분 확인 해보기.
+        binding.btnMenu.setOnClickListener {
+            val items = arrayOf<String>("돼지불백", "된장찌개", "밀면", "칼국수")
+            AlertDialog.Builder(this@MainActivity).run {
+                setTitle("점심메뉴 / 메뉴 alert 다이얼로그")
+                setIcon(android.R.drawable.ic_dialog_info)
+                setItems(
+                    items,
+                    object: DialogInterface.OnClickListener{
+                        override fun onClick(dialog: DialogInterface?, which: Int) {
+                            Log.d("KSJ", "선택한 점심메뉴 :${items[which]}")
+                        }
+                    }
+                )
+                setPositiveButton("확인", null)
+                show()
+            }
+        }
+
+
+
+
         //다이얼로그에 메뉴 선택부분 확인 해보기.
         binding.btnMenu.setOnClickListener {
             val items = arrayOf<String>("돼지불백", "된장찌개", "밀면", "칼국수")
