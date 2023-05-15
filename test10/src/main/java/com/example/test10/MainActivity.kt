@@ -5,11 +5,16 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.media.MediaPlayer
+import android.media.Ringtone
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.DatePicker
+import android.widget.MediaController
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -58,6 +63,27 @@ class MainActivity : AppCompatActivity() {
 
 //        val toast = Toast.makeText(this, "메세지내용", Toast.LENGTH_SHORT) //context에 지정하고 싶은게 있으면 @지정할이름 으로 쓰면됨
 
+        //샘플영상 확인
+        binding.btnVideo.setOnClickListener {
+            val videofile : Uri = Uri.parse("android.resouce://"+packageName+"/raw/testvideo")
+
+//            val player : MediaPlayer = MediaPlayer.create(this, R.raw.testvideo)
+//            player.start()
+            val mc = MediaController(this)
+
+            binding.videoView.setMediaController(mc)
+            binding.videoView.setVideoPath(videofile.toString())
+            binding.videoView.start()
+        }
+
+        //소리버튼 확인
+        binding.btnSound.setOnClickListener {
+            val notification : Uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            val ringtone = RingtoneManager.getRingtone(applicationContext, notification) //context는 설정을 관리하는거라고 생각하면됨(applicaitonContext = 최상위 버전)
+            ringtone.play()
+        }
+
+
         //라디오 버튼 포함하는 부분
         binding.btnRadio.setOnClickListener {
             var items = arrayOf<String>("1", "2", "3")
@@ -98,8 +124,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 )
                 setPositiveButton("확인",null)
+                setCancelable(true)
                 show()
-            }
+            }.setCanceledOnTouchOutside(false)
         }
 
 
