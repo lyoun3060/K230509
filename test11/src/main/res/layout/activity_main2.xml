@@ -34,6 +34,8 @@
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HI2"/>
+        android:text="HI2"
+        android:textSize="30sp"
+        />
 
 </LinearLayout>
