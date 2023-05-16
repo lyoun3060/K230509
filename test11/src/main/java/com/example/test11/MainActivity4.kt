@@ -20,10 +20,20 @@ class MainActivity4 : AppCompatActivity() {
 
 //설정(순서2)
 //설정이 필요한 부분 (1.뷰 홀더, 2.어댑터, 3.레이아웃/전부 클래스임)
-//뷰홀더 만들기 (item.342.xml의 자동생성된 바인딩 파일 사용)
+
+//뷰홀더 만들기
+//(item.342.xml의 자동생성된 바인딩 파일 사용)
+//여기에 항목은 목록의 구성 요소들의 뷰 객체를 모아 두는곳
+//샘플로 텍스트 뷰 한개만 구성됨 Item342Binding
     class MyViewHolder(val binding: Item342Binding) : RecyclerView.ViewHolder(binding.root)
 
-    //어댑터 만들기
+//(어댑터 만들기)
+//데이터 연동 -> 현재 임시 데이터 리스트 9개 값을 -> 해당 뷰 홀더의 아이템 요소의 값으로 사용
+//나중에, 텍스트, 이미지 등 여러 데이터를 해당 뷰에 할당 작업
+//보통 데이터는 API 서버에서 받아온 값( 중간데이터로 JSON 형식으로 받아서, 필요한 욧만 사용할 예정)
+//예를들어, 공공데이터, 한아이템의 요소의 값이 10개있으면, 그중에서 4개정도 선탠
+//썸네일 이미지1개, 제목1개, 위치1개, 전화번호 1개
+//해당 뷰에 하나씩 재할당 함.
     class MyAdapter(val datas:MutableList<String>):RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         //필수적으로 재정의 해야하는 함수들있음
         //다 적어도 되지만, 자동완성으로 해당클래스에서 선택하면됨(자동구현 링크 클릭하기)
@@ -35,7 +45,7 @@ class MainActivity4 : AppCompatActivity() {
         //실제 xml파일명 : item_342 참조
         //순서는 : 목록(리스트), 구성품(아이템)
         //설계순서는, 큰것 -> 작은것으로 진행
-            //개발순서는 반대로 작은것 -> 큰것
+        //개발순서는 반대로 작은것 -> 큰것
             MyViewHolder(Item342Binding.inflate(LayoutInflater.from(parent.context), parent, false))
 
         override fun getItemCount(): Int {
@@ -44,6 +54,7 @@ class MainActivity4 : AppCompatActivity() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
             //holder: RecyclerView.ViewHoloder형, 부모클래스 타입
             //holder형변환 ->다운캐스팅 MyViewHolder
             val binding = (holder as MyViewHolder).binding
@@ -52,6 +63,7 @@ class MainActivity4 : AppCompatActivity() {
             binding.itemData.text = datas[position]
 
             //뷰에 이벤트 추가, itemRoot = 리사이클러 뷰그룹 레이아웃
+            // 여기부터 로그까지는 사실상 옵션임.
             binding.itemRoot.setOnClickListener{
 
 //            어댑터 클래스는, 액티비티 컴포넌트 클래스가 아니라서, 이것을 사용하려면, 부모님 클래스에서 상속받아 사용해야합니다., 일단 로그캣출력으로 대체
