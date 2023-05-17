@@ -2,15 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="menu1"
         android:title="메뉴1번"
         />
     <item
-        android:id="menu2"
         android:title="메뉴2번"
         />
     <item
-        android:id="menu3"
         android:title="메뉴3번"
         />
 </menu>

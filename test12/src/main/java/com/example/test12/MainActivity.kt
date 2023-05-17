@@ -107,7 +107,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder
-                = MyViewHolder(ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+                = MyViewHolder(ItemRecyclerviewBinding.inflate(LayoutInflater.from(parent.context),
+            parent, false))
 
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val binding=(holder as MyViewHolder).binding
