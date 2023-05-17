@@ -9,10 +9,25 @@ import com.example.test12.databinding.ActivityMain3Binding
 
 class MainActivity3 : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //플로팅 액션바, 화면에 마치 둥둥 떠 있는 버튼
+        //구글의 머터리얼 디자인에서 나온 기능을 가져다 사용중
+        //부트스트랩 특정 뷰를 가져와 사용하는것과 거의 비슷
+        //다만, 이벤트 처리부분이 좀 더 쉽다.
+        binding.fbtn.setOnClickListener {
+            when(binding.fbtn.isExtended){
+                true->binding.fbtn.shrink()
+                false->binding.fbtn.extend()
+            }
+        }
+
 
         //개발자가 만든 툴바를 직접 설정, 넣기
         setSupportActionBar(binding.toolbar)
