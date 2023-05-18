@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
 
+    //생명주기 onCreate 최초 한번 실행
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -71,10 +72,10 @@ class MainActivity : AppCompatActivity() {
             //버튼을 사용해, 해당 인텐트 정보 호출
             binding.btn4.setOnClickListener {
                 val intent = Intent()
-                //여기의 값은 개발자가 아무거나 입력해도 무관함
-//                intent.action = "ACTION_EDIT" //아무거나 입력해도 상관없지만 ACTION_EDIT이 정의된게 없어서 오류가 발생했었음
-                intent.action = Intent.ACTION_VIEW
-                intent.data = Uri.parse("http://google.com")
+//                intent.action = "ACTION_EDIT" //아무거나 입력해도 상관없지만 해당 형식으로 적으면 ACTION_EDIT이 정의된게 없어서 오류가 발생함
+                intent.action = "ACTION_EDIT" //(4교시)
+//                intent.action = Intent.ACTION_VIEW //(3교시)
+//                intent.data = Uri.parse("http://google.com")
                 //intent.setPackage("com.") / 인텐트 setPackage 잠시보류
                 startActivity(intent) //<-후처리 하는거 아니니깐
 
