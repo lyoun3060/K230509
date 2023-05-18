@@ -18,6 +18,14 @@ class DetailActivity : AppCompatActivity() {
 
 
         //(2교시)후처리 작업 테스트
-
+        //버큰 클릭시, 후처리 작업
+        binding.btn2.setOnClickListener{
+            //작업set
+            intent.putExtra("result", "후처리 데이터 값")
+            //결과 코드와, 인텐트 전달 작업
+            setResult(RESULT_OK, intent)
+            //현재화면 종료
+            finish()
+        }
     }
 }
