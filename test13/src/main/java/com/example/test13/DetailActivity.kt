@@ -21,7 +21,8 @@ class DetailActivity : AppCompatActivity() {
         //버큰 클릭시, 후처리 작업
         binding.btn2.setOnClickListener{
             //작업set
-            intent.putExtra("result", "후처리 데이터 값")
+            intent.putExtra("result", "후처리 데이터 값") /*2교시*/
+            intent.putExtra("result2", "후처리 방법 2데이터 값") /*3교시*/
             //결과 코드와, 인텐트 전달 작업
             setResult(RESULT_OK, intent)
             //현재화면 종료

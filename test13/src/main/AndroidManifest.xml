@@ -10,7 +10,7 @@
         android:theme="@style/Theme.K230509Samkim">
         <activity
             android:name=".DetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
