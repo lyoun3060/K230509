@@ -1,5 +1,7 @@
+package com.example.k230509samkim
+
 //최상위 영역
-// java에서는 int num = 1;형식으로 썻으나
+// java에서는 int com.example.k230509samkim.getNum = 1;형식으로 썻으나
 // 코틀린에서는 val(or var) 변수명 : 타입 = 값;
 val num : Int = 1; //해당 함수 사용하면 푸른색, 사용안하면 회색
 //우리가 왜 IDE를 사용하나 -> 편의성, 기본적인 문법체크해줌, (문법을 다 외울려고 안했으면 좋겠다./ 최소한의 기본문법 정도 알고진행 ㄱㄱ), 일단 자주 많이 사용하는거 부터 하자
@@ -68,9 +70,9 @@ open class Super{ //부모클래스
 
 //부모것을 사용하려면반드시 초기화 필요
 
-//Super() 주생성자 호출해야함
+//com.example.k230509samkim.Super() 주생성자 호출해야함
 //생성자 = 초기화를 하겠다.
-//class Sub :Super(){ //자식클래스
+//class com.example.k230509samkim.Sub :com.example.k230509samkim.Super(){ //자식클래스
 //
 //}
 //
@@ -108,7 +110,7 @@ open class Super2(){
     open var data = 10
     open fun some()
     {
-        println("i am Super2 : $data")
+        println("i am com.example.k230509samkim.Super2 : $data")
     }
 }
 
@@ -117,7 +119,7 @@ val obj = object : Super2() {
     override var data = 20
     override fun some()
     {
-        println("i am Super2 Sub : $data")
+        println("i am com.example.k230509samkim.Super2 com.example.k230509samkim.Sub : $data")
     }
 
 }
@@ -141,7 +143,7 @@ fun testH(arg:(Int)->Boolean):()->String{
     }else{
         "invalid"
     }
-    return {"testH result 확인 : $result"}
+    return {"com.example.k230509samkim.testH result 확인 : $result"}
 }
 
 fun main(){
@@ -212,15 +214,15 @@ fun main(){
 
 
     val obj = Sub()
-    println("obj.superData의 값: "+obj.superData)
+    println("com.example.k230509samkim.getObj.superData의 값: "+obj.superData)
     obj.superFun()
-//    obj.protectedData()
+//    com.example.k230509samkim.getObj.protectedData()
 //    protected는 자식에서만 접근가능
 
 
     val user2 = User2("ksj",10)
     //객체생성, 인스턴스 생성
-    //java -> User user = new User("ksj");
+    //java -> com.example.k230509samkim.User user = new com.example.k230509samkim.User("ksj");
     val user = User("김수장")
     println("User의 이름은 : "+user.name)
     user.someFun()

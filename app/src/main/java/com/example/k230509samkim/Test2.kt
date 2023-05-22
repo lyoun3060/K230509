@@ -1,3 +1,5 @@
+package com.example.k230509samkim
+
 class Test2 {
     fun testH(arg:(Int)->Boolean):()->String{
         val result = if(arg(10)){
@@ -5,7 +7,7 @@ class Test2 {
         }else{
             "invalid"
         }
-        return {"testH result 확인 : $result"}
+        return {"com.example.k230509samkim.testH result 확인 : $result"}
     }
 
 

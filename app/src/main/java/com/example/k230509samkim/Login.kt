@@ -1,11 +1,13 @@
+package com.example.k230509samkim
+
 import java.util.*
 
-// Scanner scanner = new Scanner(System.in) 자바 버전.
+// Scanner com.example.k230509samkim.getScanner = new Scanner(System.in) 자바 버전.
 val scanner: Scanner = Scanner(System.`in`);
 
 class Login() {
     companion object {
-        fun loginTest(user:Admin){
+        fun loginTest(user: Admin){
             if(user.id.equals("admin") && user.pw.equals("1234")) {
                 println("로그인 성공")
             }
